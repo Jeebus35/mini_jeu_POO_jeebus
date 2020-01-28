@@ -19,7 +19,8 @@ puts "Quel est ton nom de guerrier ?"
 print '> '
 guerrier = gets.chomp
 user = HumanPlayer.new(guerrier)
-
+player1 = Player.new("Idy la dompteuse de putois")
+player2 = Player.new("Hugh le bouffeur de larves")
 
 #Création des ennemis
 def enemies_array
@@ -35,8 +36,35 @@ end
 
 # BATTLE !!
 while user.life_points > 0 && (player1.life_points > 0 || player2.life_points > 0)
-
-#boucle while
+  puts user.show_state
+  puts "Quelle action veux-tu effectuer ?"
+  puts 
+  puts "a - chercher une meilleure arme"
+  puts "s - chercher à se soigner"
+  puts 
+  puts "attaquer un joueur en vue :"
+  print "0 -" 
+  puts player1.show_state
+  print "1 -" 
+  puts player2.show_state
+  puts 
+  print '>'
+  choix = gets.chomp
+  if
+    choix == "a"
+    puts user.search_weapon
+  elsif 
+    choix == "s"
+    puts user.search_health_pack
+  elsif 
+    choix == "0"
+    user.attacks(player1)
+    puts player1.show_state
+  elsif 
+    choix == "1"
+    user.attacks(player2)
+    puts player2.show_state
+  end  
 end 
 if 
   user.life_points > 0

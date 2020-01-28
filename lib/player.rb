@@ -55,6 +55,7 @@ class HumanPlayer < Player
 
   def search_weapon
     new_weapon_level = rand(1..6)
+    puts
     puts "Mon petit père, tu viens de trouver une arme de niveau #{new_weapon_level}"
     if new_weapon_level > @weapon_level
       @weapon_level = new_weapon_level
@@ -67,6 +68,7 @@ class HumanPlayer < Player
   def search_health_pack
     health_pack_level = rand(1..6)
     if health_pack_level == 1
+      puts
       puts "Nan. Rien par ici sorry"
     elsif health_pack_level >= 2 && health_pack_level <= 5
       if  
@@ -75,7 +77,8 @@ class HumanPlayer < Player
       else
         @life_points = 100
       end 
-      puts "Un pot de Nutella ?! Mais qu'est-ce que ça fout la ? Pas super écolo mais bon tu gagnes 50 points de vie ! "
+      puts
+      puts "Un pot de Nutella ?! Mais qu'est-ce que ça fout la ? Pas super écolo mais tu gagnes 50 points de vie ! "
     elsif health_pack_level == 6
       if 
         @life_points <= 20 && @life_points > 0
@@ -83,7 +86,8 @@ class HumanPlayer < Player
       else
         @life_points = 100
       end 
-      puts "Oh ! Un restau vegan et bio ?! C'est super healthy, tu gagnes 80 points de vie petit veinard ! Je te recommande le velouté de courge bleue de Hongrie. Une tuerie. Et puis tant que tu y es, laisse ton arme à l'entrée... tout le monde est sympa ici. Enfin garde quand même un oeil sur le type en chemise orange."
+      puts
+      puts "Oh ! Un restau vegan et bio ?! C'est super healthy, tu gagnes 80 points de vie petit veinard ! Je te recommande le velouté de courge bleue de Hongrie. Une tuerie. Et puis relax, laisse ton arme à l'entrée tsé... les gens sont cools ici. Enfin garde quand même un oeil sur le type en chemise orange."
     end 
   end    
 
