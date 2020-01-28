@@ -23,14 +23,12 @@ player1 = Player.new("Idy la dompteuse de putois")
 player2 = Player.new("Hugh le bouffeur de larves")
 
 #Création des ennemis
-def enemies_array
-  enemies_array =[]
+
+  e_array =[]
   player1 = Player.new("Idy la dompteuse de putois")
   player2 = Player.new("Hugh le bouffeur de larves")
-  enemies_array << player1
-  enemies_array << player2
-  return enemies_array
-end
+  e_array << player1
+  e_array << player2
 
 
 
@@ -45,9 +43,17 @@ while user.life_points > 0 && (player1.life_points > 0 || player2.life_points > 
   puts "attaquer un joueur en vue :"
   puts
   print "0 -" 
-  puts player1.show_state
+  if player1.life_points > 0
+     puts player1.show_state
+  else
+     puts "#{player1.name} mange les pissenlits par la racine..." 
+  end
   print "1 -" 
-  puts player2.show_state
+  if player2.life_points > 0
+     puts player2.show_state
+  else
+     puts "#{player2.name} mange les pissenlits par la racine..." 
+  end
   puts 
   print '>  '
   choix = gets.chomp
@@ -65,12 +71,11 @@ while user.life_points > 0 && (player1.life_points > 0 || player2.life_points > 
     puts user.attacks(player2) 
   end
   puts "Les autres joueurs attaquent !"
-  enemies_array.each do |player|
+  e_array.each do |player|
     if 
       player.life_points > 0
     then  
       player.attacks(user)
-    else puts player.show_state
     end 
     end
   puts  
