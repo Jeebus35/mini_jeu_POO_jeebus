@@ -43,12 +43,13 @@ while user.life_points > 0 && (player1.life_points > 0 || player2.life_points > 
   puts "s - chercher à se soigner"
   puts 
   puts "attaquer un joueur en vue :"
+  puts
   print "0 -" 
   puts player1.show_state
   print "1 -" 
   puts player2.show_state
   puts 
-  print '>'
+  print '>  '
   choix = gets.chomp
   if
     choix == "a"
@@ -58,14 +59,23 @@ while user.life_points > 0 && (player1.life_points > 0 || player2.life_points > 
     puts user.search_health_pack
   elsif 
     choix == "0"
-    user.attacks(player1)
-    puts player1.show_state
-  elsif 
+    puts user.attacks(player1)
+  else 
     choix == "1"
-    user.attacks(player2)
-    puts player2.show_state
-  end  
+    puts user.attacks(player2) 
+  end
+  puts "Les autres joueurs attaquent !"
+  enemies_array.each do |player|
+    if 
+      player.life_points > 0
+    then  
+      player.attacks(user)
+    else puts player.show_state
+    end 
+    end
+  puts  
 end 
+
 if 
   user.life_points > 0
   puts "T'es vraiment le meilleur. Maître Splinter te fait un bisou depuis l'au delà"

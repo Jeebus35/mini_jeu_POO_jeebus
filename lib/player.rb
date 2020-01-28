@@ -23,7 +23,7 @@ class Player
   end
 
   def attacks(player_X)
-    puts "#{@name} attaque #{player_X.name} à la japonaise ! Tenuki.......... Invocation du rat !"
+    puts " #{@name} attaque #{player_X.name} à la japonaise ! Tenuki.......... Invocation du rat !"
     damage = compute_damage
     puts
     puts "-----> Il lui inflige #{damage} points de dommages dans la caboche ... c'est du sale. Mais en même temps il a invoqué le rat."
